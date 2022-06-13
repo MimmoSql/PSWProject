@@ -22,7 +22,7 @@ public class User {
     private String name;
 
     @Basic
-    @Column(name="lasr_name",nullable = true)
+    @Column(name="last_name",nullable = true)
     private String lastName;
 
     @Basic

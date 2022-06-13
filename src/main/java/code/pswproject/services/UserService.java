@@ -2,9 +2,10 @@ package code.pswproject.services;
 
 import code.pswproject.repositories.UserRepository;
 import code.pswproject.entities.User;
-import com.example.pswproject.support.exceptions.UserAlreadyExistsException;
+import code.pswproject.support.exceptions.UserAlreadyExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
@@ -14,12 +15,12 @@ public class UserService {
     @Autowired
     UserRepository userRepository;
 
-    @Transactional(readOnly = false)
-    public User addUser(User s) throws UserAlreadyExistsException{
-        if(userRepository.existsUserById(s.getId())){
+    @Transactional(readOnly = false,  propagation = Propagation.REQUIRED)
+    public User addUser(User user) throws UserAlreadyExistsException{
+        if(userRepository.existsByEmail(user.getEmail())){
             throw new UserAlreadyExistsException();
         }
-        return userRepository.save(s);
+        return userRepository.save(user);
     }
 
     @Transactional(readOnly = true)
@@ -36,6 +37,9 @@ public class UserService {
     public List<User> showUserByName(String name){
         return userRepository.findUserByName(name);
     }
+
+    @Transactional(readOnly = true)
+    public List<User> showUSerByEmail(String email){ return userRepository.findUserByEmail(email); }
 
 
 }
