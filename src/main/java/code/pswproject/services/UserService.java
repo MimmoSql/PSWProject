@@ -1,7 +1,7 @@
-package com.example.pswproject.services;
+package code.pswproject.services;
 
-import com.example.pswproject.entities.User;
-import com.example.pswproject.repositories.UserRepository;
+import code.pswproject.repositories.UserRepository;
+import code.pswproject.entities.User;
 import com.example.pswproject.support.exceptions.UserAlreadyExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

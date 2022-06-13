@@ -1,8 +1,8 @@
-package com.example.pswproject.controllers;
+package code.pswproject.controllers;
 
 
-import com.example.pswproject.entities.User;
-import com.example.pswproject.services.UserService;
+import code.pswproject.entities.User;
+import code.pswproject.services.UserService;
 import com.example.pswproject.support.exceptions.UserAlreadyExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

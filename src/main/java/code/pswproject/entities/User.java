@@ -1,4 +1,4 @@
-package com.example.pswproject.entities;
+package code.pswproject.entities;
 
 
 import lombok.Data;

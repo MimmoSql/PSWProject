@@ -1,6 +1,6 @@
-package com.example.pswproject.repositories;
+package code.pswproject.repositories;
 
-import com.example.pswproject.entities.User;
+import code.pswproject.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.util.List;

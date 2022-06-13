@@ -1,4 +1,4 @@
-package com.example.pswproject;
+package code.pswproject;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
