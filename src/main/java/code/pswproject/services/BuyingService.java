@@ -10,10 +10,14 @@ import code.pswproject.repositories.UserRepository;
 import code.pswproject.support.exceptions.ProductNotAvailableException;
 import code.pswproject.support.exceptions.UserNotExist;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import javax.persistence.EntityManager;
 import java.util.List;
 
+
+@Service
 public class BuyingService {
     @Autowired
     private BuyingRepository buyingRepository;

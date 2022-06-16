@@ -3,7 +3,7 @@ package code.pswproject.controllers;
 
 import code.pswproject.entities.User;
 import code.pswproject.services.UserService;
-import com.example.pswproject.support.exceptions.UserAlreadyExistsException;
+import code.pswproject.support.exceptions.UserAlreadyExistsException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
