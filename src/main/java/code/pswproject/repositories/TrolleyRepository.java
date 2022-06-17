@@ -13,4 +13,7 @@ public interface TrolleyRepository extends JpaRepository<Trolley,Integer> {
 
     List<Trolley> findByProduct(Product product);
     List<Trolley> findByQuantity(int quantity);
+
+    @Override
+    boolean existsById(Integer integer);
 }
