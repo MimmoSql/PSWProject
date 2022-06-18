@@ -25,7 +25,7 @@ public class BuyingService {
     @Autowired
     private TrolleyRepository trolleyRepository;
     @Autowired
-    static EntityManager entityManager;
+    private EntityManager entityManager;
 
     @Transactional(readOnly = false)
     public Buying addBuying(Buying buying) throws ProductNotAvailableException{
