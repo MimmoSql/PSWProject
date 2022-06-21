@@ -1,40 +1,54 @@
 package code.pswproject.entities;
 
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
-import org.hibernate.annotations.CreationTimestamp;
+import lombok.*;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
+@Data
 @Entity
-@Table(name = "buying", schema = "orders")
+@Table(name = "buying")
 public class Buying {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private int id;
+    @Column(name = "id",nullable = false)
+    private Integer id;
 
     @Basic
-    @CreationTimestamp
-    @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "buying_time")
+    @Column(name = "purchaseTime")
     private Date purchaseTime;
 
-
     @ManyToOne
-    @JoinColumn(name = "buyer")
-    private User buyer;
-
+    @JoinColumn(name = "user")
+    private User user;
 
     @OneToMany(mappedBy = "buying", cascade = CascadeType.MERGE)
     private List<Trolley> trolley;
+
+    public Buying() {
+    }
+
+    public Buying(Integer id, Date purchaseTime, User buyer, List<Trolley> trolley) {
+        this.id = id;
+        this.purchaseTime = purchaseTime;
+        this.user = buyer;
+        this.trolley = trolley;
+    }
+
+    public Buying(Date purchaseTime, User buyer, List<Trolley> trolley) {
+        this.purchaseTime = purchaseTime;
+        this.user = buyer;
+        this.trolley = trolley;
+    }
+
+    @Override
+    public String toString() {
+        return "Buying{" +
+                "id=" + id +
+                ", purchaseTime=" + purchaseTime +
+                ", user=" + user +
+                ", trolley=" + trolley +
+                '}';
+    }
 }

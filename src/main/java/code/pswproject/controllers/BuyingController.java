@@ -16,14 +16,17 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/buying")
+@RequestMapping(path = "/buying")
 public class BuyingController {
 
+
+    private final BuyingService buyingService;
+
     @Autowired
-    private BuyingService buyingService;
+    public BuyingController(BuyingService buyingService) {
+        this.buyingService = buyingService;
+    }
 
-
-    @PostMapping
     @ResponseStatus(code = HttpStatus.OK)
     public ResponseEntity create(@RequestBody @Valid Buying buying){
         try {
@@ -33,7 +36,7 @@ public class BuyingController {
         }
     }
 
-    @GetMapping("/{user}")
+    @GetMapping
     public List<Buying> getBuying(@RequestBody @Valid User user){
         try{
             return buyingService.getBuyingByUser(user);

@@ -2,7 +2,7 @@ package code.pswproject.repositories;
 
 import code.pswproject.entities.Buying;
 import code.pswproject.entities.User;
-import org.springframework.data.jpa.repository.*;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.util.List;
 

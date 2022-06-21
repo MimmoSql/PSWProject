@@ -12,10 +12,14 @@ import java.util.List;
 @Service
 public class ProductService {
 
-    @Autowired
-    private ProductRepository productRepository;
+    private final ProductRepository productRepository;
 
-    @Transactional(readOnly = false)
+    @Autowired
+    public ProductService(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
+
+
     public void addProduct(Product product) throws ProductAlreadyExistException{
         if (productRepository.existsById(product.getId())){
             throw new ProductAlreadyExistException();
@@ -23,18 +27,11 @@ public class ProductService {
         productRepository.save(product);
     }
 
-    @Transactional(readOnly = true)
     public List<Product> showAllProducts() {
         return productRepository.findAll();
     }
 
-    @Transactional(readOnly = true)
-    public List<Product> showProductById(int id){
-        return productRepository.findById(id);
-    }
 
-
-    @Transactional(readOnly = true)
     public List<Product> showProductsByName(String name) {
         return productRepository.findByName(name);
     }

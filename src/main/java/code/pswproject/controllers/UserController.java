@@ -4,6 +4,7 @@ package code.pswproject.controllers;
 import code.pswproject.entities.User;
 import code.pswproject.services.UserService;
 import code.pswproject.support.exceptions.UserAlreadyExistsException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,16 +14,21 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/User")
+@RequestMapping("/user")
 public class UserController {
+    private final UserService userService;
+
     @Autowired
-    private UserService userService;
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
+
 
     @PostMapping
     public ResponseEntity create(@RequestBody @Valid User user){
         try {
             User u = userService.addUser(user);
-            return new ResponseEntity(u, HttpStatus.OK);
+            return new ResponseEntity(u, HttpStatus.CREATED);
         }
         catch (UserAlreadyExistsException e){
             return new ResponseEntity("User is alaready regiestrer",HttpStatus.BAD_REQUEST);
@@ -34,7 +40,6 @@ public class UserController {
         return userService.showAllUser();
     }
 
-    @GetMapping("/find/by_lastName")
     public ResponseEntity getByLastName(@RequestParam(required = false) String lastName){
         List<User> l = userService.showUserByLastName(lastName);
         if (l.size() <= 0){

@@ -6,5 +6,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'pswFront';
+  title = 'PSWFrontend';
+}
+
+@Component({
+  selector: 'nav-bar',
+  templateUrl: './app.navbar.html',
+  styleUrls: ['./app.component.css']
+})
+export class NavBar {
+  title = 'PSWFrontend';
 }
