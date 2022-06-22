@@ -17,3 +17,30 @@ export class AppComponent {
 export class NavBar {
   title = 'PSWFrontend';
 }
+
+@Component({
+  selector: 'foo-ter',
+  templateUrl: './app.footer.html',
+  styleUrls: ['./app.component.css']
+})
+export class FooTer {
+  title = 'PSWFrontend';
+}
+
+@Component({
+  selector: 'button-login',
+  templateUrl: './app.loginButton.html',
+  styleUrls: ['./app.component.css']
+})
+export class LoginButton {
+  title = 'PSWFrontend';
+}
+
+@Component({
+  selector: 'button-trolley',
+  templateUrl: './app.trolleyButton.html',
+  styleUrls: ['./app.component.css']
+})
+export class TrolleyButton {
+  title = 'PSWFrontend';
+}
