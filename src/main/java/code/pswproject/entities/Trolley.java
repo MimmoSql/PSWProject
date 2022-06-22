@@ -1,5 +1,6 @@
 package code.pswproject.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -7,7 +8,7 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "Trolley")
+@Table(name = "Trolley",schema = "orders")
 public class Trolley {
 
     @Id
@@ -16,7 +17,7 @@ public class Trolley {
     private Integer id;
 
     @Basic
-    @Column(name = "quantity")
+    @Column(name = "quantity",nullable = true)
     private int quantity;
 
     @ManyToOne(cascade = CascadeType.MERGE)
@@ -25,6 +26,7 @@ public class Trolley {
 
     @ManyToOne
     @JoinColumn(name = "related_purchase")
+    @JsonIgnore
     private Buying buying;
 
     public Trolley() {

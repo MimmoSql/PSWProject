@@ -5,6 +5,8 @@ import { AppComponent, NavBar, FooTer,LoginButton,TrolleyButton} from './app.com
 import { SocialComponent } from './social/social.component';
 import { RouterModule } from '@angular/router';
 import { ProductComponent } from './product/product.component';
+import { TrolleyComponent } from './trolley/trolley.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -14,13 +16,17 @@ import { ProductComponent } from './product/product.component';
     LoginButton,
     TrolleyButton,
     SocialComponent,
-    ProductComponent
+    ProductComponent,
+    TrolleyComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
       { path: 'social', component: SocialComponent },
-      { path: 'product', component: ProductComponent }
+      { path: 'product', component: ProductComponent },
+      { path: 'trolley', component: TrolleyComponent },
+      { path: 'login', component: LoginComponent }
     ])
   ],
   providers: [],

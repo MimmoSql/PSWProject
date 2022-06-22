@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Data
 @Entity
-@Table(name = "product")
+@Table(name = "product",schema = "orders")
 public class Product {
 
     @Id
@@ -16,27 +16,27 @@ public class Product {
     private Integer id;
 
     @Basic
-    @Column(name = "name")
+    @Column(name = "name",nullable = true)
     private String name;
 
     @Basic
-    @Column(name = "price")
-    private String price;
+    @Column(name = "price",nullable = true)
+    private int price;
 
     @Basic
-    @Column(name = "quantity")
+    @Column(name = "quantity",nullable = true)
     private int quantity;
 
     public Product() {
     }
 
-    public Product(String name, String price, int quantity) {
+    public Product(String name, int price, int quantity) {
         this.name = name;
         this.price = price;
         this.quantity = quantity;
     }
 
-    public Product(Integer id, String name, String price, int quantity) {
+    public Product(Integer id, String name, int price, int quantity) {
         this.id = id;
         this.name = name;
         this.price = price;

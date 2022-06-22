@@ -25,6 +25,7 @@ public class ProductController {
 
     @PostMapping
     public ResponseEntity create(@RequestBody @Valid Product product){
+        System.out.println(product.getId().getClass().getName());
         try{
             productService.addProduct(product);
         }catch (ProductAlreadyExistException e){
