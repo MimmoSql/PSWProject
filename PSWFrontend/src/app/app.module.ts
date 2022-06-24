@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent, NavBar, FooTer,LoginButton,TrolleyButton} from './app.component';
 import { SocialComponent } from './social/social.component';
@@ -18,10 +20,13 @@ import { LoginComponent } from './login/login.component';
     SocialComponent,
     ProductComponent,
     TrolleyComponent,
-    LoginComponent
+    LoginComponent,
+
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    HttpClientModule,
     RouterModule.forRoot([
       { path: 'social', component: SocialComponent },
       { path: 'product', component: ProductComponent },

@@ -23,7 +23,7 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @PostMapping
+    @PostMapping(path = "/addProduct")
     public ResponseEntity create(@RequestBody @Valid Product product){
         System.out.println(product.getId().getClass().getName());
         try{
