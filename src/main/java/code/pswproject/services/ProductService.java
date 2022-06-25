@@ -19,19 +19,19 @@ public class ProductService {
         this.productRepository = productRepository;
     }
 
-
+    @Transactional(readOnly = false)
     public void addProduct(Product product) throws ProductAlreadyExistException{
         if (productRepository.existsById(product.getId())){
             throw new ProductAlreadyExistException();
         }
         productRepository.save(product);
     }
-
+    @Transactional(readOnly = true)
     public List<Product> showAllProducts() {
         return productRepository.findAll();
     }
 
-
+    @Transactional(readOnly = true)
     public List<Product> showProductsByName(String name) {
         return productRepository.findByName(name);
     }

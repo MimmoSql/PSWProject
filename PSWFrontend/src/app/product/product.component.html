@@ -3,7 +3,7 @@
     <section class="margin">
         <div>
             <form>
-                <input [formMethod]="searchController" matInput type="text">
+                <input [formControl]="searchController" matInput type="text">
             </form>
             <button mat-raised-button color="primary" (click)="searchProduct()"> Search </button>
         </div>
@@ -11,9 +11,10 @@
     <section class="margin">
         <div *ngIf="searchStatus && searchResult.length > 0">
             <div *ngFor="let Product of searchResult">
-                    <h1>{{Product.name}}</h1>
-                    <h1>{{Product.price}}</h1>
-                    <h1>{{Product.quantity}}</h1>   
+                    <h1>Name : {{Product.name}}</h1>
+                    <h1>Price : {{Product.price}}</h1>
+                    <h1>quantity : {{Product.quantity}}</h1>
+                    <h1>-------------------------------------</h1>   
             </div>
         </div>
         <div *ngIf="searchStatus && searchResult.length == 0">
