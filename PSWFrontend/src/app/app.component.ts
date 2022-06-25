@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import { SharedModelService } from './model/shared-model.service';
+import { Product } from './model/objects/Product';
 
 @Component({
   selector: 'app-root',

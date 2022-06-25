@@ -13,7 +13,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/product")
+@RequestMapping("/product")
 public class ProductController {
 
     private final ProductService productService;
@@ -34,12 +34,12 @@ public class ProductController {
         return new ResponseEntity<>("Product added successfully", HttpStatus.OK);
     }
 
-    @GetMapping("/getAll")
+    @GetMapping(path = "/getAll")
     public List<Product> getAll() {
         return productService.showAllProducts();
     }
 
-    @GetMapping("/getByName")
+    @GetMapping("/search")
     public ResponseEntity getByName(@RequestBody(required = false)String name){
         List<Product> ret = productService.showProductsByName(name);
         if (ret.size() <= 0){

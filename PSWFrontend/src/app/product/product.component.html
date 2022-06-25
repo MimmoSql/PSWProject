@@ -1,1 +1,26 @@
-<h1>Product</h1>
+<div class="termial pre" role="main">
+<h2 class="margin">Products</h2>
+    <section class="margin">
+        <div>
+            <form>
+                <input [formMethod]="searchController" matInput type="text">
+            </form>
+            <button mat-raised-button color="primary" (click)="searchProduct()"> Search </button>
+        </div>
+    </section>
+    <section class="margin">
+        <div *ngIf="searchStatus && searchResult.length > 0">
+            <div *ngFor="let Product of searchResult">
+                    <h1>{{Product.name}}</h1>
+                    <h1>{{Product.price}}</h1>
+                    <h1>{{Product.quantity}}</h1>   
+            </div>
+        </div>
+        <div *ngIf="searchStatus && searchResult.length == 0">
+            <h3> Nessun risultato! </h3>
+          </div>
+          <div *ngIf="!searchStatus">
+            <h3> C'e' stato un errore, non e' possibile caricare i risultati! </h3>
+          </div>
+    </section>
+</div>
