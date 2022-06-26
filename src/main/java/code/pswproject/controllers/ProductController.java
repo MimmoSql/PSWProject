@@ -39,7 +39,7 @@ public class ProductController {
         return productService.showAllProducts();
     }
 
-    @GetMapping("/search")
+    @GetMapping(path = "/search")
     public ResponseEntity getByName(@RequestBody(required = false)String name){
         List<Product> ret = productService.showProductsByName(name);
         if (ret.size() <= 0){

@@ -8,9 +8,9 @@ import java.util.List;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Integer> {
-
-    List<Product> findById(int id);
     List<Product> findByName(String name);
     List<Product> findAll();
 
+    @Override
+    boolean existsById(Integer id);
 }
