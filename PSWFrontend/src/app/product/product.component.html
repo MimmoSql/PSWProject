@@ -1,28 +1,33 @@
 <div class="termial pre" role="main">
-    
+
 <h2 class="margin">Products</h2>
-    <section class="margin">
+    <section class="margin2">
         <div>
-            <form>
+            <form appearance="outline">
                 <input [formControl]="searchController" matInput type="text">
             </form>
             <button mat-raised-button color="primary" (click)="searchProduct()"> Search </button>
         </div>
     </section>
-    <section class="margin">
+    <section class="margin3">
         <div *ngIf="searchStatus && searchResult.length > 0">
             <div *ngFor="let Product of searchResult">
-                    <h1>Name : {{Product.name}}</h1>
-                    <h1>Price : {{Product.price}}</h1>
-                    <h1>quantity : {{Product.quantity}}</h1>
-                    <h1>-------------------------------------</h1>   
+                <div class="col-12 col-md-4" >
+                    <div class="card">
+                        <div class="card-body" class="row align-items-center" >
+                          <h5 class="nav-link2" >Name : {{Product.name}}</h5>
+                          <h5 class="nav-link2" >Price : {{Product.price}}</h5>
+                          <h5 class="nav-link2" >Quantity : {{Product.quantity}}</h5>
+                        </div>
+                    </div>
+                  </div> 
             </div>
         </div>
         <div *ngIf="searchStatus && searchResult.length == 0">
-            <h3> Nessun risultato! </h3>
+            <h3> No products with that name! </h3>
           </div>
           <div *ngIf="!searchStatus">
-            <h3> C'e' stato un errore, non e' possibile caricare i risultati! </h3>
+            <h3> There was an error, it is not possible to load the results! </h3>
           </div>
     </section>
 </div>

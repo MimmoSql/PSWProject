@@ -2,6 +2,7 @@ package code.pswproject.controllers;
 
 
 import code.pswproject.entities.Product;
+import code.pswproject.repositories.ProductRepository;
 import code.pswproject.services.ProductService;
 import code.pswproject.support.exceptions.ProductAlreadyExistException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +20,11 @@ public class ProductController {
     private final ProductService productService;
 
     @Autowired
-    public ProductController(ProductService productService) {
-        this.productService = productService;
-    }
+    ProductRepository productRepository;
+
+
+    @Autowired
+    public ProductController(ProductService productService) { this.productService = productService; }
 
     @PostMapping(path = "/addProduct")
     public ResponseEntity create(@RequestBody @Valid Product product){
@@ -40,11 +43,7 @@ public class ProductController {
     }
 
     @GetMapping(path = "/search")
-    public ResponseEntity getByName(@RequestBody(required = false)String name){
-        List<Product> ret = productService.showProductsByName(name);
-        if (ret.size() <= 0){
-            return new ResponseEntity("No resolved with that name!",HttpStatus.OK);
-        }
-        return new ResponseEntity<>(ret,HttpStatus.OK);
+    public ResponseEntity<List<Product>> getProductByName(@RequestParam String name){
+        return new ResponseEntity<List<Product>>(productRepository.findByName(name), HttpStatus.OK);
     }
 }

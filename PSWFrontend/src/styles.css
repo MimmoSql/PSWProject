@@ -24,6 +24,16 @@ body{
     transform: scale(1.15);
 }
 
+.nav-link2{
+    color:rgb(0, 0, 0);
+    text-align: center;
+}
+
+.nav-link2:hover{
+    color:rgb(144, 0, 255);
+    transform: scale(1.15);
+}
+
 .loginButton{
     color:rgb(0, 0, 0);
     position: absolute;
@@ -35,7 +45,6 @@ body{
     position: absolute;
     right: 20px;
 }
-
 
 .card:hover{
     transform: scale(1.1);
@@ -100,4 +109,4 @@ a{
 
 
 
-html, body { height: 100%; }
+html, body { height: 80%; }

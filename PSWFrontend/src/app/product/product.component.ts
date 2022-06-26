@@ -21,12 +21,13 @@ export class ProductComponent {
   addResult: Product[] = [];
   addStatus=true;
 
+
   constructor(model: SharedModelService) {
     this.model = model;
   }
 
   searchProduct(){
-    if(this.searchController.value == null){ 
+    if(this.searchController.value <= 0){ 
       this.model.getAllProduct(this.showResultProduct.bind(this))
     }
     else{ 
@@ -40,4 +41,9 @@ export class ProductComponent {
       this.searchResult = response as Product[];
     }
   }
+
+  showAllProduct(){
+    this.model.getAllProduct(this.showResultProduct.bind(this))
+  }
+
 }
