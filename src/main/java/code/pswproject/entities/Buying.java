@@ -7,7 +7,7 @@ import java.util.List;
 
 @Data
 @Entity
-@Table(name = "buying",schema = "orders")
+@Table(name = "buying",schema = "PSWProjectDB")
 public class Buying {
 
     @Id
